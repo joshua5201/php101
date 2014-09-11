@@ -5,16 +5,17 @@ require_once "../database.php";
 
 if (isset($_POST['title']))
 {
-#    $db->sql->query("use test;");
+    $db->sql->query("use test;");
     $notice = "";
     if (empty($_POST['title'])) {
         $notice = '<p style="color:red;">Title is required</p>';
     } else {
-        $query = sprintf('INSERT INTO posts (title, content) VALUES (%s, %s)', $_POST['title'], $_POST['content']);
+        $query = sprintf('INSERT INTO posts (title, content) VALUES (\'%s\', \'%s\')', $_POST['title'], $_POST['content']);
         if (!$db->sql->query($query)) {
             exit("Error: ".$db->sql->error);
         }
     }
+    header("Location: index.php");
 }
 
 ?>

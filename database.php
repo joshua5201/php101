@@ -10,7 +10,7 @@ class Database
         $this->host = $_host;
         $this->username = $_username;
         $this->password = $_password;
-        $this->dbame = $_dbname;
+        $this->dbname = $_dbname;
     }
     function connect()
     {
